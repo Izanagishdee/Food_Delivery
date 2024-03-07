@@ -1,11 +1,9 @@
-import { Request } from "express";
+import { Request, Response } from "express";
 
-export const LogInUserQuery = async (req: Request) => {
+export const LogInQuery = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
-
-    const User = 
   } catch (error: any) {
-    throw new Error("");
+    throw new Error(error.message);
   }
 };
