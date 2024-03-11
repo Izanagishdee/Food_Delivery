@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 import Inputs from "./Inputs";
 import InputFooter from "./InputFooter";
 
-export default function SignUp() {
+export default function LogIn() {
   return (
     <Box
       sx={{

@@ -5,13 +5,13 @@ import Menu from "./Menu";
 
 export default function Header() {
   return (
-    <Container
+    <Box
       sx={{
-        width: "1600px",
+        width: "2600px",
         height: "80px",
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
+        justifyContent: "space-around",
       }}
     >
       <Box sx={{ width: "720px" }}>
@@ -32,6 +32,6 @@ export default function Header() {
         <SearchButton />
         <HeaderButton />
       </Box>
-    </Container>
+    </Box>
   );
 }
