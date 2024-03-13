@@ -1,34 +1,22 @@
 "use client";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography, Container } from "@mui/material";
 import Link from "@mui/material/Link";
-import { Divider } from "@mui/joy";
 
 export default function Footer() {
   return (
-    <Box sx={{ position: "relative" }}>
-      <Box
-        sx={{
-          width: "2500px",
-          height: "445px",
-          position: "absolute",
-          zIndex: "0",
-        }}
-      >
-        <img src="Footer.png" alt="" width={2500} height={445} />
-      </Box>
+    <Stack sx={{ backgroundImage: "url(/Footer.png)" }}>
       <Stack
         sx={{
-          width: "2100px",
-          height: "422px",
+          width: "100vw",
+          height: "545px",
           gap: "20px",
-          position: "absolute",
-          zIndex: "10",
           top: "284px",
           left: "200px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "space-between",
+          marginTop: "100px",
         }}
       >
         <Stack sx={{ width: "212px", height: "41px", gap: "8px" }}>
@@ -36,7 +24,7 @@ export default function Footer() {
         </Stack>
         <Stack
           sx={{
-            width: "2100px",
+            width: "1200px",
             height: "22px",
             display: "flex",
             flexDirection: "row",
@@ -76,7 +64,6 @@ export default function Footer() {
           <img src="instagram.png" alt="" width={40} height={46} />
           <img src="twitter.png" alt="" width={40} height={46} />
         </Stack>
-        <Divider orientation="horizontal" color="#FFFFFF" />
         <Stack
           sx={{
             width: "319px",
@@ -90,6 +77,6 @@ export default function Footer() {
           <Typography>Зохиогчийн эрх хуулиар хамгаалагдсан.</Typography>
         </Stack>
       </Stack>
-    </Box>
+    </Stack>
   );
 }

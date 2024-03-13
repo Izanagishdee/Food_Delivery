@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SignUp from "@/components/SignUp";
+import SignUp from "@/components/SignUp/SignUp";
 import { Container } from "@mui/material";
 import { Box } from "@mui/material";
 export default function Home() {
@@ -10,7 +10,6 @@ export default function Home() {
         height: "100vh",
         display: "flex",
         justifyContent: "center",
-        position: "relative",
       }}
     >
       <SignUp />
