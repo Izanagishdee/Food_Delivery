@@ -32,11 +32,10 @@ export const InputPass = (props: InputPasswordProps) => {
 
   return (
     <Stack sx={{ mt: "20px" }}>
-      <Box sx={{ fontFamily: "sans-serif", mb: "10px" }}>{text}</Box>
-      <FormControl sx={{ mb: 1 }} fullWidth variant="outlined">
+      <Box sx={{ fontFamily: "sans-serif" }}>{text}</Box>
+      <FormControl sx={{}} fullWidth variant="outlined">
         <OutlinedInput
           sx={{
-            backgroundColor: "#F5F5F5",
             borderRadius: "4px",
             borderColor: "grey",
           }}

@@ -3,7 +3,7 @@ import { ChangeEvent, useState } from "react";
 import { Box, Stack, Grid } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
-import { InputPass } from "./Password";
+import { InputPass } from "./InputPass";
 
 const signUpField = [
   { name: "name", placeholder: "Нэрээ Оруулна Уу", sort: "Нэр" },
@@ -34,14 +34,10 @@ export default function Inputs(props: handletype) {
 
   return (
     <Box sx={{ width: "384px", height: "409px" }}>
-      <Stack sx={{ width: "384px", height: "fit", gap: "4px", border: 2 }}>
-        <Grid
-          sx={{
-            marginTop: "50px",
-          }}
-        >
+      <Stack sx={{ width: "384px", height: "fit", gap: "4px" }}>
+        <Grid sx={{}}>
           {signUpField.map(({ name, placeholder, sort }, index) => (
-            <Stack>
+            <Stack sx={{ marginBottom: "15px" }}>
               {sort}
               <TextField
                 name={name}

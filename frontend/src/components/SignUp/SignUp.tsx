@@ -1,5 +1,5 @@
 "use client";
-import { Box, Typography, Stack } from "@mui/material";
+import { Box, Typography, Stack, FormGroup } from "@mui/material";
 import Inputs from "./Inputs";
 import Button from "@mui/material/Button";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -7,26 +7,24 @@ import Checkbox from "@mui/material/Checkbox";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { ChangeEvent, useState } from "react";
+
 type stateType = {
   name: string;
   email: string;
   phone: string;
   password: string;
+  repassword: string;
 };
 
 export default function SignUp() {
-  const [mail, setMail] = useState("");
-  const [password, setPassword] = useState("");
-  const [repassword, setRepassword] = useState("");
-  const [username, setUsername] = useState("");
-  const [phone, stPhone] = useState("");
   const { push } = useRouter();
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string>();
   const [userData, setUserData] = useState<stateType>({
     name: "",
     email: "",
     phone: "",
     password: "",
+    repassword: "",
   });
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -38,18 +36,22 @@ export default function SignUp() {
     e.preventDefault();
 
     try {
-      // if (password !== repassword) {
-      //   return "Password is not match";
-      // }
-      const { data } = await axios.post("http://localhost:8000/signup", {
-        userData,
-      });
-      console.log(data);
+      if (userData.password == userData.repassword) {
+        const { data } = await axios.post(
+          "http://localhost:8000/signup",
+          userData
+        );
+        localStorage.setItem(`tokenFood`, data);
+        push("/Menu");
+      } else {
+        return "Passwords do not match";
+      }
 
-      // push("/login");
+      console.log(userData);
+      console.log(setError);
     } catch (error: any) {
       console.log(error);
-      setError(error.message);
+      setError(error.response.data);
     }
   };
   return (
@@ -65,7 +67,7 @@ export default function SignUp() {
       <Box
         sx={{
           width: "448px",
-          height: "722px",
+          height: "fit",
           gap: "48px",
           display: "flex",
           flexDirection: "column",
@@ -81,17 +83,18 @@ export default function SignUp() {
           sx={{
             width: "384px",
             height: "120px",
-
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-between",
+            marginTop: "30px",
           }}
         >
-          <FormControlLabel
-            required
-            control={<Checkbox />}
-            label="Үйлчилгээний нөхцөл зөвшөөрөх"
-          />
+          <FormGroup>
+            <FormControlLabel
+              required
+              control={<Checkbox />}
+              label="Үйлчилгээний нөхцөл зөвшөөрөх"
+            />
+          </FormGroup>
           <Button
             variant="text"
             onClick={handleClick}
@@ -104,6 +107,7 @@ export default function SignUp() {
               fontSize: "14px",
               fontWeight: "600",
               border: 2,
+              backgroundColor: "blue",
             }}
           >
             Бүртгүүлэх
