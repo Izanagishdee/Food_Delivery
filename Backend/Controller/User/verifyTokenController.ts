@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getLoggedInUser } from "../../Queries/User/GetLoggedinUser";
+import { getLoggedInUser } from "../../Queries/User/getLoggedinUser";
 
 export const getLoggedInUserController = async (
   req: Request,

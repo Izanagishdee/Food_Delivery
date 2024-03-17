@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { updatePassQuery } from "../../Queries/User/UpdatePassQuery";
+import { updatePassQuery } from "../../Queries/User/updatePassQuery";
 
 export const updatePass = async (req: Request, res: Response) => {
   try {

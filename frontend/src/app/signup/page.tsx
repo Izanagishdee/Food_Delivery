@@ -1,10 +1,10 @@
-import { Box } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import SignUp from "@/components/SignUp/SignUp";
 
 export default function signup() {
   return (
-    <Box>
+    <Stack>
       <SignUp />
-    </Box>
+    </Stack>
   );
 }

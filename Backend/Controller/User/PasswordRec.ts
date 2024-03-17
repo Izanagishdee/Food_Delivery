@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import { passwordRecovery } from "../../Queries/User/PasswordRecovery";
+import { passwordRecovery } from "../../Queries/User/passwordRecovery";
 
 export const forgotPasswordService = async (req: Request, res: Response) => {
   try {

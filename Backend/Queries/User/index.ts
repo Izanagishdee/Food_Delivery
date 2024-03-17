@@ -1,2 +1,2 @@
-export * from "./Create-User-query";
-export * from "./LogIn-User-query";
+export * from "./create-User-query";
+export * from "./logIn-User-query";

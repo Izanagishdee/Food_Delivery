@@ -42,7 +42,7 @@ export default function SignUp() {
           userData
         );
         localStorage.setItem(`tokenFood`, data);
-        push("/Menu");
+        push("/HomePage");
       } else {
         return "Passwords do not match";
       }

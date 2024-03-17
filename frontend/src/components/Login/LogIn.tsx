@@ -45,7 +45,7 @@ export default function LogIn() {
         localStorage.setItem(`tokenFood`, data.data.user);
         console.log(data);
 
-        push("/Menu");
+        push("/HomePage");
       }
     } catch (error: any) {
       setError(error.response.data);
