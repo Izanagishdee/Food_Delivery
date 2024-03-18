@@ -10,6 +10,7 @@ import FormControl from "@mui/material/FormControl";
 import axios from "axios";
 import { Label, Visibility, VisibilityOff } from "@mui/icons-material";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function LogIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -56,7 +57,7 @@ export default function LogIn() {
     <Stack
       sx={{
         width: "100vw",
-        height: "100vh",
+        height: "fit",
         backgroundColor: "white",
         justifyContent: "center",
         alignItems: "center",
@@ -114,7 +115,7 @@ export default function LogIn() {
                 }
               />
             </FormControl>
-            {error && <div>email or password</div>}
+            {error && <div>email or password wrong</div>}
           </Stack>
 
           <Button

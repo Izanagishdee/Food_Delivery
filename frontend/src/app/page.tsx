@@ -1,6 +1,4 @@
-import Image from "next/image";
-import SignUp from "@/components/SignUp/SignUp";
-import { Container } from "@mui/material";
+import Login from "./login/page";
 import { Box } from "@mui/material";
 export default function Home() {
   return (
@@ -12,7 +10,7 @@ export default function Home() {
         justifyContent: "center",
       }}
     >
-      <SignUp />
+      <Login />
     </Box>
   );
 }

@@ -3,35 +3,33 @@ import { Stack, Box } from "@mui/material";
 
 import Image from "next/image";
 type PropsType = {
-  zurag: any;
+  icon: any;
   text: string;
-  une: string;
+  price: string;
 };
 export const Details = (props: PropsType) => {
-  const { zurag, text, une } = props;
+  const { icon, text, price } = props;
   return (
     <Stack
       sx={{
         width: "400px",
-        height: "380px",
+        height: "400px        ",
 
         // flexBasis: 300,
         justifyContent: "space-around",
         display: "flex",
         flexWrap: "wrap",
+        position: "relative",
+        border: 2,
       }}
     >
-      <Image
-        alt=""
-        src={zurag}
-        width={358}
-        height={255}
-        style={{ borderRadius: "16px" }}
-      />
+      <Stack sx={{ width: "282px", height: "186px", borderRadius: "16px" }}>
+        <Image alt="" src={icon} layout="fill" />
+      </Stack>
       <Stack sx={{}}>
         <Stack
           sx={{
-            fontSize: "25px",
+            fontSize: "16px",
             fontFamily: "sans-serif",
             fontWeight: "semi-bold",
             marginBottom: "7px",
@@ -47,7 +45,7 @@ export const Details = (props: PropsType) => {
             color: "#18BA51",
           }}
         >
-          {une}₮
+          {price}₮
         </Stack>
       </Stack>
     </Stack>

@@ -1,60 +1,57 @@
-import { Stack, Box } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 
-type PropsType = {
+type Propstype = {
   icon: any;
   title: string;
   text: string;
 };
 
-export const CardDetails = (props: PropsType) => {
+export const CardDetails = (props: Propstype) => {
   const { icon, title, text } = props;
-
   return (
     <Stack
       sx={{
-        width: "290px",
-        height: "165px",
-
-        flexBasis: 300,
+        width: "265px",
+        height: "155px",
         borderRadius: "16px",
+        border: "1px",
+        gap: "15px",
+        padding: "16px",
         boxShadow: "5px 5px 25px #D6D8DB",
-        padding: "20px 20px",
-        gap: "50px",
       }}
     >
-      <Stack
-        sx={{
-          color: "green",
-          fontSize: "60px",
-          marginLeft: "20px",
-          marginTop: "20px",
-        }}
+      <Box sx={{ width: "60px", height: "60px" }}>{icon}</Box>
+      <Box
+        flexDirection={"column"}
+        sx={{ width: "233px", height: "48px", gap: "4px" }}
       >
-        {icon}
-      </Stack>
-      <Stack sx={{ gap: "10px" }}>
-        <Box
+        <Typography
           sx={{
-            fontSize: "24px",
+            width: "fit",
+            height: "27px",
             fontFamily: "sans-serif",
-            fontWeight: "semi-bold",
-            display: "flex",
-            gap: "40px",
+            fontSize: "18px",
+            lineHeight: "27px",
+            fontWeight: "700",
+            color: "#272727",
           }}
         >
           {title}
-        </Box>
-        <Box
+        </Typography>
+        <Typography
           sx={{
-            fontSize: "16px",
+            width: "fit",
+            height: "17px",
             fontFamily: "sans-serif",
-            color: "gray",
-            marginTop: "5px",
+            fontWeight: "400",
+            fontSize: "14px",
+            lineHeight: "17px",
+            color: "#272727",
           }}
         >
           {text}
-        </Box>
-      </Stack>
+        </Typography>
+      </Box>
     </Stack>
   );
 };

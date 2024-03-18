@@ -1,7 +1,7 @@
 "use client";
 
 import { MouseEvent, useState } from "react";
-import { Details } from "./Modal";
+import { Details } from "./Details";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Button from "@mui/material/Button";
 
@@ -42,15 +42,15 @@ export const Food = ({ foods }: AllFoodsProps) => {
     setFoundFood(filteredFood as FoodType);
   };
 
-  const [num, setNum] = useState(12);
-  const [moreButton, setMoreButton] = useState(false);
+  const [num, setNum] = useState(8);
+  const [moreButton, setMoreButton] = useState(true);
 
   const handlerMore = () => {
     if (moreButton) {
       setNum(foods.length);
       setMoreButton(false);
     } else {
-      setNum(12);
+      setNum(8);
       setMoreButton(true);
     }
   };
@@ -120,10 +120,13 @@ export const Food = ({ foods }: AllFoodsProps) => {
       <Stack
         direction="row"
         sx={{
+          width: "90%",
+          height: "fit",
           gap: "10px",
           flexWrap: "wrap",
           display: "flex",
           justifyContent: "center",
+          border: 2,
         }}
       >
         {foods?.slice(0, num).map((el: FoodType, index: number) => (
@@ -133,7 +136,7 @@ export const Food = ({ foods }: AllFoodsProps) => {
             onClick={handleFoodClick}
             id={el._id}
           >
-            <Details zurag={el.image} text={el.name} une={el.price} />
+            <Details icon={el.image} text={el.name} price={el.price} />
           </div>
         ))}
       </Stack>
@@ -197,7 +200,7 @@ export const Food = ({ foods }: AllFoodsProps) => {
                   style={{
                     width: "86%",
                     backgroundColor: "#f6f6f6",
-                    height: "40px",
+                    height: "Fit",
                     padding: "5px 5px",
                     borderRadius: "6px",
                     marginTop: "7px",
@@ -207,7 +210,7 @@ export const Food = ({ foods }: AllFoodsProps) => {
                     color: "gray",
                   }}
                 >
-                  {foundFood?.ingredient}
+                  {foundFood?.ingredients}
                 </div>
               </Stack>
               <Stack sx={{ gap: "10px" }}>

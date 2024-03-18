@@ -1,53 +1,45 @@
-import { Stack } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { CardDetails } from "../Something/CardDetails";
-import AutoStoriesOutlinedIcon from "@mui/icons-material/AutoStoriesOutlined";
+import RamenDiningIcon from "@mui/icons-material/RamenDining";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 
-import RiceBowlIcon from "@mui/icons-material/RiceBowl";
-
-const CardData = [
-  {
-    icon: (
-      <AutoStoriesOutlinedIcon sx={{ fontSize: "35px", color: "#18BA51" }} />
-    ),
-    title: "Хүргэлтийн төлөв хянах",
-    text: "Захиалга бэлтгэлийн явцыг хянах",
-  },
-  {
-    icon: <MenuBookIcon sx={{ fontSize: "35px", color: "#18BA51" }} />,
-    title: "Шуурхай хүргэлт",
-    text: "Захиалга бэлтгэлийн явцыг хянах",
-  },
-  {
-    icon: <RiceBowlIcon sx={{ fontSize: "35px", color: "#18BA51" }} />,
-    title: "Эрүүл, баталгаат орц",
-    text: "Захиалга бэлтгэлийн явцыг хянах",
-  },
-  {
-    icon: <MenuBookIcon sx={{ fontSize: "35px", color: "#18BA51" }} />,
-    title: "Хоолны өргөн сонголт",
-    text: "Захиалга бэлтгэлийн явцыг хянах",
-  },
-];
-
-export default function CardMap() {
+export function CardMap() {
+  const CardData = [
+    {
+      icon: <MenuBookIcon />,
+      title: "Хүргэлтийн төлөв хянах",
+      text: "Захиалга бэлтгэлийн явцыг хянах",
+    },
+    {
+      icon: <RamenDiningIcon />,
+      title: "Шуурхай хүргэлт",
+      text: "Захиалга бэлтгэлийн явцыг хянах",
+    },
+    {
+      icon: <AccessTimeIcon />,
+      title: "Эрүүл, баталгаат орц",
+      text: "Захиалга бэлтгэлийн явцыг хянах",
+    },
+    {
+      icon: <AccessTimeIcon />,
+      title: "Хоолны өргөн сонголт",
+      text: "Захиалга бэлтгэлийн явцыг хянах",
+    },
+  ];
   return (
     <Stack
-      direction="row"
+      direction={"row"}
       sx={{
-        display: "flex",
-        width: "98%",
-        height: "fit",
-        alignItems: "center",
-        gap: "82px",
-        justifyContent: "center",
-        flexWrap: "wrap",
+        width: "1450px",
+        height: "155px",
+        justifyContent: "space-between",
       }}
     >
-      {CardData?.map((el, index) => (
-        <Stack key={index}>
+      {CardData.map((el, index) => (
+        <div key={index}>
           <CardDetails icon={el.icon} title={el.title} text={el.text} />
-        </Stack>
+        </div>
       ))}
     </Stack>
   );

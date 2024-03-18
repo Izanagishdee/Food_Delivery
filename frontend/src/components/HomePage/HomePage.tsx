@@ -1,20 +1,29 @@
+"use client";
 import { Stack } from "@mui/material";
-import CardMap from "../Maps/CardMap";
+import { CardMap } from "../Maps/CardMap";
+import { AllFood } from "./AllFood";
+import React from "react";
+import Image from "next/image";
 
-export default function MainMenu() {
+export default function HomePage() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
   return (
     <Stack
       sx={{
         width: "100vw",
-        height: "100vh",
         justifyContent: "center",
         alignItems: "center",
+        border: 2,
+        paddingY: "100px",
       }}
     >
-      <Stack>
-        <img src="MainPart.png" alt="" width={1440} height={788} />
+      <Stack sx={{ width: "1440px", height: "778px", position: "relative" }}>
+        {/* <Image src="MainPart.png" alt="" layout="fill" /> */}
+        <Image src="/MainPart.png" alt="" fill style={{ flexShrink: 0 }} />
       </Stack>
       <CardMap />
+      <AllFood handleOpen={handleOpen} />
     </Stack>
   );
 }
