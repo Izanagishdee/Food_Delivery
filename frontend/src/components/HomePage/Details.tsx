@@ -12,21 +12,20 @@ export const Details = (props: PropsType) => {
   return (
     <Stack
       sx={{
-        width: "400px",
-        height: "400px        ",
+        width: "fit",
+        height: "300px",
 
         // flexBasis: 300,
         justifyContent: "space-around",
         display: "flex",
         flexWrap: "wrap",
         position: "relative",
-        border: 2,
       }}
     >
-      <Stack sx={{ width: "282px", height: "186px", borderRadius: "16px" }}>
-        <Image alt="" src={icon} layout="fill" />
+      <Stack sx={{ width: "285px", height: "186px", borderRadius: "16px" }}>
+        <img src={icon} width={286} height={186} />
       </Stack>
-      <Stack sx={{}}>
+      <Stack sx={{ width: "286px", height: "56px" }}>
         <Stack
           sx={{
             fontSize: "16px",

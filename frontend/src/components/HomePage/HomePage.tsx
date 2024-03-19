@@ -14,7 +14,6 @@ export default function HomePage() {
         width: "100vw",
         justifyContent: "center",
         alignItems: "center",
-        border: 2,
         paddingY: "100px",
       }}
     >

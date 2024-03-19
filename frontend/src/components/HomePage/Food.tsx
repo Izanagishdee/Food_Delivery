@@ -126,7 +126,6 @@ export const Food = ({ foods }: AllFoodsProps) => {
           flexWrap: "wrap",
           display: "flex",
           justifyContent: "center",
-          border: 2,
         }}
       >
         {foods?.slice(0, num).map((el: FoodType, index: number) => (

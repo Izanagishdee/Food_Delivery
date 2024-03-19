@@ -30,7 +30,7 @@ export const AllFood = async (props: OpenModelType) => {
         direction: "row",
         justifyContent: "space-around",
         flexWrap: "wrap",
-        border: 2,
+        alignItems: "center",
       }}
     >
       <Stack
