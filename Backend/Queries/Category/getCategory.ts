@@ -1,16 +1,10 @@
-import { Request } from "express";
-import { CategoryModel, FoodModel } from "../../db";
+import { Request, Response } from "express";
+import { CategoryModel } from "../../db";
 
 export const getCategoryQuery = async (req: Request) => {
   const { id } = req.body;
 
-  try {
-    const category = await CategoryModel.findById({ _id: id }).populate(
-      "foodId"
-    );
-    return category;
-    console.log(category);
-  } catch (error: any) {
-    throw new Error();
-  }
+  const category = await CategoryModel.findById({ _id: id }).populate("foodId");
+  console.log(category);
+  return category;
 };
