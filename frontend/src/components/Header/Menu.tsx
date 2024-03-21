@@ -1,7 +1,14 @@
+"use client";
 import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
+import { useAmp } from "next/amp";
+import { useRouter } from "next/navigation";
 
 export default function Menu() {
+  const { push } = useRouter();
+  const HandleClick = () => {
+    push("/HomePage");
+  };
   return (
     <Box
       sx={{
@@ -14,6 +21,7 @@ export default function Menu() {
     >
       <img src="Logo.png" alt="" width={41} height={41} />
       <Button
+        onClick={HandleClick}
         variant="text"
         sx={{
           width: "134px",

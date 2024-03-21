@@ -1,9 +1,16 @@
-import { Box, Typography } from "@mui/material";
+"use client";
+
+import { Box, Typography, Stack } from "@mui/material";
 import Button from "@mui/material/Button";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
+import { useRouter } from "next/navigation";
+import PersonIcon from "@mui/icons-material/Person";
+
 export default function HeaderButton() {
+  const { push } = useRouter();
+
   return (
     <Box sx={{ display: "flex" }}>
       <Button
@@ -23,6 +30,7 @@ export default function HeaderButton() {
         <ShoppingBasketIcon sx={{ fontSize: 30 }} />
         <Typography sx={{ fontSize: "14px", fontWeight: 700 }}>Сагс</Typography>
       </Button>
+
       <Button
         variant="text"
         sx={{

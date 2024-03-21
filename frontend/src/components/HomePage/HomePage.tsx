@@ -15,10 +15,10 @@ export default function HomePage() {
         justifyContent: "center",
         alignItems: "center",
         paddingY: "100px",
+        gap: "20px",
       }}
     >
       <Stack sx={{ width: "1440px", height: "778px", position: "relative" }}>
-        {/* <Image src="MainPart.png" alt="" layout="fill" /> */}
         <Image src="/MainPart.png" alt="" fill style={{ flexShrink: 0 }} />
       </Stack>
       <CardMap />

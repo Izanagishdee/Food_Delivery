@@ -3,7 +3,9 @@ import SearchButton from "./Search";
 import HeaderButton from "./HeaderButton";
 import Menu from "./Menu";
 
+
 export default function Header() {
+;
   return (
     <Stack
       sx={{
@@ -11,10 +13,10 @@ export default function Header() {
         height: "80px",
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-around",
+        justifyContent: "space-evenly",
       }}
     >
-      <Stack direction="row">
+      <Stack direction="row" sx={{ justifyContent: "space-between" }}>
         <Box sx={{ width: "720px" }}>
           <Menu />
         </Box>

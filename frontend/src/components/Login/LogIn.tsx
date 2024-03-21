@@ -25,7 +25,6 @@ export default function LogIn() {
     const { name, value } = el.target;
     setUserData({ ...userData, [name]: value });
   };
-  console.log(userData);
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -44,7 +43,6 @@ export default function LogIn() {
         setError("Incorrect email or password");
       } else {
         localStorage.setItem(`tokenFood`, data.data.user);
-        console.log(data);
 
         push("/HomePage");
       }

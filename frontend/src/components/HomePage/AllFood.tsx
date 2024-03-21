@@ -8,7 +8,9 @@ import Image from "next/image";
 
 const AllFoods = async () => {
   try {
-    const { data } = await axios.get<FoodType[]>("http://localhost:8000/Foods");
+    const { data } = await axios.post<FoodType[]>(
+      "http://localhost:8000/Foods"
+    );
 
     return data;
   } catch (error) {

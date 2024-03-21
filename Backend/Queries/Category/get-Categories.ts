@@ -8,5 +8,5 @@ export const getCategoriesQuery = async (req: Request) => {
     return { name: item.name, id: item._id };
   });
   console.log(newCategorires);
-  return categories;
+  return newCategorires;
 };

@@ -2,7 +2,7 @@
 
 import { MouseEvent, useState } from "react";
 import { Details } from "./Details";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+
 import Button from "@mui/material/Button";
 
 import { Stack, Box } from "@mui/material";
@@ -42,15 +42,15 @@ export const Food = ({ foods }: AllFoodsProps) => {
     setFoundFood(filteredFood as FoodType);
   };
 
-  const [num, setNum] = useState(8);
+  const [all, setAll] = useState(8);
   const [moreButton, setMoreButton] = useState(true);
 
-  const handlerMore = () => {
+  const handleMore = () => {
     if (moreButton) {
-      setNum(foods.length);
+      setAll(foods.length);
       setMoreButton(false);
     } else {
-      setNum(8);
+      setAll(8);
       setMoreButton(true);
     }
   };
@@ -60,17 +60,28 @@ export const Food = ({ foods }: AllFoodsProps) => {
   };
   const handleMinus = () => {
     count = count - 1;
+    if (count <= 0) {
+      count = 1;
+    }
     setCount(count);
   };
 
   return (
-    <div style={{ width: "90%", display: "flex", flexDirection: "column" }}>
+    <div
+      style={{
+        width: "90%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Stack
         direction="row"
         sx={{
-          width: "95%",
-          marginBottom: "20px",
-          marginLeft: "150px",
+          width: "80%",
+          justifyContent: "space-between",
+          paddingLeft: "100px",
         }}
       >
         <Box
@@ -78,6 +89,7 @@ export const Food = ({ foods }: AllFoodsProps) => {
             display: "flex",
             gap: "20px",
             width: "80%",
+            alignItems: "center",
           }}
         >
           <Box
@@ -109,33 +121,31 @@ export const Food = ({ foods }: AllFoodsProps) => {
             gap: "10px",
             marginBottom: "10px",
           }}
-          onClick={handlerMore}
+          onClick={handleMore}
         >
-          {moreButton ? "See all" : " Undo"}
-
-          <ArrowForwardIosIcon />
+          {moreButton ? `See all ${"    "} >` : `< ${"     "} Undo`}
         </Box>
          
       </Stack>
       <Stack
         direction="row"
         sx={{
-          width: "90%",
-          height: "fit",
           gap: "10px",
           flexWrap: "wrap",
           display: "flex",
           justifyContent: "center",
+          width: "80%",
+          paddingLeft: "90px",
         }}
       >
-        {foods?.slice(0, num).map((el: FoodType, index: number) => (
+        {foods?.slice(0, all).map((el: FoodType, index: number) => (
           <div
             style={{ width: "400px" }}
             key={index}
             onClick={handleFoodClick}
             id={el._id}
           >
-            <Details icon={el.image} text={el.name} price={el.price} />
+            <Details image={el.image} text={el.name} price={el.price} />
           </div>
         ))}
       </Stack>
@@ -199,7 +209,7 @@ export const Food = ({ foods }: AllFoodsProps) => {
                   style={{
                     width: "86%",
                     backgroundColor: "#f6f6f6",
-                    height: "Fit",
+                    height: "40px",
                     padding: "5px 5px",
                     borderRadius: "6px",
                     marginTop: "7px",

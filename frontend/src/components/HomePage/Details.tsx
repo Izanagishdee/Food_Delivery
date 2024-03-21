@@ -3,32 +3,35 @@ import { Stack, Box } from "@mui/material";
 
 import Image from "next/image";
 type PropsType = {
-  icon: any;
+  image: any;
   text: string;
   price: string;
 };
 export const Details = (props: PropsType) => {
-  const { icon, text, price } = props;
+  const { image, text, price } = props;
   return (
     <Stack
       sx={{
-        width: "fit",
-        height: "300px",
+        width: "400px",
+        height: "380px",
 
         // flexBasis: 300,
         justifyContent: "space-around",
         display: "flex",
         flexWrap: "wrap",
-        position: "relative",
       }}
     >
-      <Stack sx={{ width: "285px", height: "186px", borderRadius: "16px" }}>
-        <img src={icon} width={286} height={186} />
-      </Stack>
-      <Stack sx={{ width: "286px", height: "56px" }}>
+      <Image
+        alt=""
+        src={image}
+        width={358}
+        height={255}
+        style={{ borderRadius: "16px", boxShadow: "10px 20px 25px #D6D8DB" }}
+      />
+      <Stack sx={{}}>
         <Stack
           sx={{
-            fontSize: "16px",
+            fontSize: "25px",
             fontFamily: "sans-serif",
             fontWeight: "semi-bold",
             marginBottom: "7px",
