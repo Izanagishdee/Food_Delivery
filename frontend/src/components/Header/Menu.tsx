@@ -37,6 +37,9 @@ export default function Menu() {
         Нүүр
       </Button>
       <Button
+        onClick={() => {
+          push("/Menu");
+        }}
         variant="text"
         sx={{
           width: "200px",

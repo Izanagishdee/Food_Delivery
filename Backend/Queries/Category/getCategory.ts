@@ -3,8 +3,13 @@ import { CategoryModel } from "../../db";
 
 export const getCategoryQuery = async (req: Request) => {
   const { id } = req.body;
+  try {
+    const category = await CategoryModel.findOne({ _id: id }).populate(
+      "foodId"
+    );
 
-  const category = await CategoryModel.findById({ _id: id }).populate("foodId");
-  console.log(category);
-  return category;
+    return category;
+  } catch (err: any) {
+    throw new Error(err.message);
+  }
 };

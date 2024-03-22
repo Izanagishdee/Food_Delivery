@@ -7,6 +7,6 @@ export const getCategoriesQuery = async (req: Request) => {
   const newCategorires = categories.map((item) => {
     return { name: item.name, id: item._id };
   });
-  console.log(newCategorires);
+
   return newCategorires;
 };

@@ -16,11 +16,11 @@ export const LogInQuery = async (req: Request) => {
     // console.log(user);
 
     if (user === null) {
-      throw new Error("Email or password is wrong");
+      return "Email or password is wrong";
     }
     const isPasswordCorrect = await compareHash(password, user.password);
     if (!isPasswordCorrect) {
-      throw new Error("Email or password is wrong");
+      return "Email or password is wrong";
     }
 
     const token = await tokenCreate(user._id.toString());

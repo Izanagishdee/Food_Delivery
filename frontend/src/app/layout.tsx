@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import SearchProvider from "@/components/Provider/SeachProvider";
-
+import { DataProvider } from "@/components/Provider/DataProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SearchProvider>
-          <Header />
-          {children}
-          <Footer />
-        </SearchProvider>
+        <DataProvider>
+          <SearchProvider>
+            <Header />
+            {children}
+            <Footer />
+          </SearchProvider>
+        </DataProvider>
       </body>
     </html>
   );

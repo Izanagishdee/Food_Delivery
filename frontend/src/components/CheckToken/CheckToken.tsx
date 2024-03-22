@@ -3,7 +3,6 @@ import React from "react";
 import { useState, createContext, useEffect } from "react";
 import axios from "axios";
 
-import { Stack } from "@mui/material";
 type UserData = {
   _id: string;
   name: string;
@@ -16,6 +15,7 @@ type UserData = {
 type DataContextType = {
   isLoggedIn: boolean;
   userData: UserData;
+  isAdmin: boolean;
 };
 
 export const CheckTokenContext = createContext<DataContextType>(
@@ -23,6 +23,8 @@ export const CheckTokenContext = createContext<DataContextType>(
 );
 export const CheckTokenProvider = ({ children }: any) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+
   const [userData, setUserData] = useState({
     _id: "",
     name: "",
@@ -32,14 +34,15 @@ export const CheckTokenProvider = ({ children }: any) => {
     isAdmin: "",
   });
 
-  const token = typeof window !== "undefined" && localStorage.getItem("Token");
+  const token =
+    typeof window !== "undefined" && localStorage.getItem("tokenFood");
 
   useEffect(() => {
     if (token) {
       const getUserToken = async () => {
         try {
           const { data } = await axios.post(
-            "http://localhost:8001/checkToken",
+            "http://localhost:8000/token",
             {},
             {
               headers: {
@@ -48,7 +51,12 @@ export const CheckTokenProvider = ({ children }: any) => {
               },
             }
           );
-          console.log(data);
+          console.log(data.isUser, "data");
+          if (data.isUser == true) {
+            setIsAdmin(true);
+          } else {
+            setIsAdmin(false);
+          }
 
           if (data == "provided token is not valid") {
             setIsLoggedIn(false);
@@ -68,7 +76,7 @@ export const CheckTokenProvider = ({ children }: any) => {
   }, [token]);
 
   return (
-    <CheckTokenContext.Provider value={{ userData, isLoggedIn }}>
+    <CheckTokenContext.Provider value={{ userData, isLoggedIn, isAdmin }}>
       {children}
     </CheckTokenContext.Provider>
   );

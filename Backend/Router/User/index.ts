@@ -5,7 +5,7 @@ import { CheckPass } from "../../Controller/User/CheckPass";
 import { forgotPasswordService } from "../../Controller/User/PasswordRec";
 import { updatePass } from "../../Controller/User/updatePassword";
 import { getLoggedInUserController } from "../../Controller/User/verifyTokenController";
-import { tokenCreate } from "../../Utils";
+import { tokenCheck } from "../../middleware/auth";
 
 export const userRouter = Router();
 
@@ -14,4 +14,4 @@ userRouter.post("/login", LogInUserController);
 userRouter.post("/forgot-password", forgotPasswordService);
 userRouter.post("/check-code", CheckPass);
 userRouter.post("/updatePass", updatePass);
-userRouter.get("/token", tokenCreate, getLoggedInUserController);
+userRouter.get("/token", tokenCheck, getLoggedInUserController);

@@ -16,7 +16,9 @@ export const getLoggedInUser = async (req: Request) => {
 
     const user = await UserModel.findOne({ _id: decoded.userId });
 
-    if (!user) throw new Error("User not found");
+    if (!user) {
+      throw new Error("User not found");
+    }
 
     return user;
   } catch (error) {

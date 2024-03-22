@@ -6,5 +6,5 @@ import { getCategoryController } from "../../Controller";
 export const CategoryRouter = Router();
 
 CategoryRouter.post("/createcategory", createCategoryController);
-CategoryRouter.get("/category", getCategoryController);
+CategoryRouter.post("/category", getCategoryController);
 CategoryRouter.get("/categories", getCategoriesController);

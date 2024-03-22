@@ -1,8 +1,8 @@
 "use client";
 
-import { MouseEvent, useState } from "react";
-import { Details } from "./Details";
-
+import { MouseEvent, useContext, useState } from "react";
+import { Details } from "../HomePage/Details";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import Button from "@mui/material/Button";
 
 import { Stack, Box } from "@mui/material";
@@ -42,106 +42,53 @@ export const Food = ({ foods }: AllFoodsProps) => {
     setFoundFood(filteredFood as FoodType);
   };
 
-  const [all, setAll] = useState(8);
-  const [moreButton, setMoreButton] = useState(true);
-
-  const handleMore = () => {
-    if (moreButton) {
-      setAll(foods.length);
-      setMoreButton(false);
-    } else {
-      setAll(8);
-      setMoreButton(true);
-    }
-  };
   const handleCount = () => {
     count = count + 1;
     setCount(count);
   };
   const handleMinus = () => {
     count = count - 1;
-    if ((count <= 0)) {
+    if (count <= 0) {
       count = 1;
     }
     setCount(count);
   };
+  //   const itemsBasket = JSON.parse(localStorage.getItem("foods") || "[]");
+
+  //   const addToBasket = () => {
+  //     if (foundFood) {
+  //       const itemToAdd = { ...foundFood, quantity: count };
+  //       localStorage.setItem(
+  //         "foods",
+  //         JSON.stringify([...itemsBasket, itemToAdd])
+  //       );
+
+  //       console.log(itemToAdd);
+  //     }
+  //     setOpenModal(false);
+  //   };
 
   return (
     <div
       style={{
-        width: "90%",
+        width: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        alignItems: "center",
       }}
     >
       <Stack
         direction="row"
         sx={{
-          width: "80%",
-          justifyContent: "space-between",
-          paddingLeft: "100px",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            gap: "20px",
-            width: "80%",
-            alignItems: "center",
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Image alt="" src="/Star 1.png" width={40} height={40} />
-          </Box>
-          <Box
-            sx={{
-              fontSize: "20px",
-              fontFamily: "sans-serif",
-              fontWeight: "bold",
-            }}
-          >
-            Main Foods
-          </Box>
-        </Box>
-        <Box
-          sx={{
-            fontSize: "23px",
-            fontFamily: "sans-serif",
-            color: "#18BA51",
-            display: "flex",
-            alignItems: "center",
-            gap: "10px",
-            marginBottom: "10px",
-            paddingLeft: "100px",
-          }}
-          onClick={handleMore}
-        >
-          {moreButton ? `See all ${"    "} >` : `< ${"     "} Undo`}
-        </Box>
-         
-      </Stack>
-      <Stack
-        direction="row"
-        sx={{
-          gap: "10px",
+          gap: "55px",
           flexWrap: "wrap",
           display: "flex",
           justifyContent: "center",
-          width: "80%",
-          paddingLeft: "90px",
         }}
       >
-        {foods?.slice(0, all).map((el: FoodType, index: number) => (
+        {foods?.map((el: FoodType, index: number) => (
           <div
-            style={{ width: "400px" }}
+            style={{ width: "450px", marginLeft: "0px" }}
             key={index}
             onClick={handleFoodClick}
             id={el._id}
@@ -253,6 +200,7 @@ export const Food = ({ foods }: AllFoodsProps) => {
                   </Button>
                 </div>
                 <Button
+                  //   onClick={addToBasket}
                   sx={{
                     backgroundColor: "#18BA51",
                     color: "black",
@@ -260,7 +208,7 @@ export const Food = ({ foods }: AllFoodsProps) => {
                     border: 2,
                   }}
                 >
-                  Сагслах
+                  Сагсанд хийх
                 </Button>
               </Stack>
             </Stack>
